@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVAX | Technology Solutions & Artificial Intelligence</title>
+    
+    <!-- Favicon containing the official NOVAX logo -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+
+    <!-- Google Fonts: Cairo & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Background Interactive Canvas -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Ambient Glowing Accents -->
+    <div class="ambient-glow glow-red"></div>
+    <div class="ambient-glow glow-green"></div>
+
+    <!-- Site Header & Navigation -->
+    <header class="site-header">
+        <div class="container header-content">
+            <!-- Brand Logo & Name -->
+            <a href="#home" class="brand-logo-link">
+                <img src="assets/images/logo.png" alt="NOVAX Official Logo" class="brand-logo-img">
+                <div class="brand-text-block">
+                    <span class="brand-main-title">NOVAX</span>
+                    <span class="brand-sub-title">TECH SOLUTIONS</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="main-nav" id="mainNav">
+                    <li><a href="index.html" class="nav-link active" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">المشاريع</a></li>
+                    <li><a href="blog.html" class="nav-link" data-i18n="nav_blog">المدونة التقنية</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav_about">الرؤية والتقنية</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+
+            <!-- Action Controls (Language Switcher & Auth) -->
+            <div class="header-actions">
+                <!-- Language Toggle Button -->
+                <button id="langToggleBtn" class="lang-toggle-btn" title="Toggle Language / تبديل اللغة">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="langToggleText">English</span>
+                </button>
+
+                <!-- Dashboard Button (Visible when logged in) -->
+                <button id="dashboardNavBtn" class="btn btn-secondary btn-sm" style="display: none;">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span data-i18n="nav_dashboard">لوحة التحكم</span>
+                </button>
+
+                <!-- Auth Action Button (Sign In / Logout) -->
+                <button id="authActionBtn" class="btn btn-primary btn-sm">
+                    <i class="fa-solid fa-user-lock"></i>
+                    <span data-i18n="nav_login">تسجيل الدخول</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuToggleBtn" class="menu-toggle-btn" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section (Home) -->
+        <section id="home" class="hero-section">
+            <div class="container hero-center-box">
+                
+                <!-- Central Emblem & Brand Identity -->
+                <div class="hero-emblem-wrap">
+                    <div class="hero-logo-halo"></div>
+                    <img src="assets/images/logo.png" alt="NOVAX Falcon Emblem" class="hero-main-logo">
+                    <h1 class="hero-centered-brand-title">NOVAX</h1>
+                    <div class="hero-centered-brand-sub">
+                        <span>TECHNOLOGY SOLUTIONS</span>
+                        <i class="fa-solid fa-star star-icon"></i>
+                        <span>SINCE 2025</span>
+                    </div>
+                </div>
+
+                <!-- AI Engineering Tag -->
+                <div class="hero-tag-badge">
+                    <span class="dot"></span>
+                    <span data-i18n="hero_tag">طلاب هندسة الذكاء الاصطناعي والحلول الرقمية</span>
+                </div>
+
+                <!-- Main Slogan -->
+                <h2 class="hero-heading">
+                    <span data-i18n="hero_title_prefix">نصمم المستقبل بـ</span>
+                    <span class="highlight-gradient" data-i18n="hero_title_highlight">هندسة الذكاء الاصطناعي</span>
+                    <span data-i18n="hero_title_suffix">والحلول الذكية</span>
+                </h2>
+
+                <p class="hero-description" data-i18n="hero_desc">
+                    نطور برمجيات ذكية، وأنظمة سحابية متقدمة، ونماذج ذكاء اصطناعي تفاعلية تهدف إلى حل المشكلات التقنية وتطوير المنظومات التعليمية والخدمية والصحية.
+                </p>
+
+                <!-- Hero CTA Buttons -->
+                <div class="hero-cta-group">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span data-i18n="hero_btn_projects">استكشف مشاريعنا</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span data-i18n="hero_btn_contact">تواصل معنا</span>
+                    </a>
+                </div>
+
+                <!-- Stats Counter Banner -->
+                <div class="stats-banner">
+                    <div class="stat-item">
+                        <span class="stat-num highlight-red">3+</span>
+                        <span class="stat-label" data-i18n="stat_projects">مشاريع ريادية قيد التطوير</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num highlight-green">AI+</span>
+                        <span class="stat-label" data-i18n="stat_models">نماذج وتطبيقات ذكية</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num highlight-gold">4</span>
+                        <span class="stat-label" data-i18n="stat_domains">محاور تقنية أساسية</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">99.9%</span>
+                        <span class="stat-label" data-i18n="stat_uptime">معايير جودة وأمان معماري</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Engineering Pillars / Core Competencies -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="brand_sub">TECHNOLOGY SOLUTIONS</span>
+                    <h2 class="section-title" data-i18n="pillars_title">مجالات التركيز الهندسي والتقني</h2>
+                    <p class="section-subtitle" data-i18n="pillars_sub">منظومة عمل متكاملة تستند إلى أسس علوم الحاسوب وهندسة الذكاء الاصطناعي</p>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="pillar-title" data-i18n="pillar_1_title">هندسة الذكاء الاصطناعي (AI & ML)</h3>
+                        <p class="pillar-desc" data-i18n="pillar_1_desc">بناء وتخصيص نماذج اللغة والتصنيف وخوارزميات التوجيه التكيفي ومعالجة اللغات الطبيعية.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="pillar-title" data-i18n="pillar_2_title">الأنظمة السحابية والويب المتكامل</h3>
+                        <p class="pillar-desc" data-i18n="pillar_2_desc">تطوير منصات ويب تفاعلية عالية الأداء وسريعة الاستجابة مبنية بأحدث أطر العمل الحديثة.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="pillar-title" data-i18n="pillar_3_title">الأنظمة الموزعة والمرنة (Resilient)</h3>
+                        <p class="pillar-desc" data-i18n="pillar_3_desc">تصميم حلول تعمل بكفاءة حتى في ظروف الاتصال الضعيف وانقطاع الشبكات بنمط Offline-First.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="pillar-title" data-i18n="pillar_4_title">أمن البيانات والخصوصية</h3>
+                        <p class="pillar-desc" data-i18n="pillar_4_desc">تطبيق معايير التشفير والتحقق الصارم لحماية سرية البيانات الطبية والتجارية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">ENGINEERING PORTFOLIO</span>
+                    <h2 class="section-title" data-i18n="proj_title">المشاريع والمبادرات التقنية</h2>
+                    <p class="section-subtitle" data-i18n="proj_sub">مشاريع ريادية طموحة قيد النمذجة والتطوير تركز على التعليم الذكي، التجارة الرقمية، والرعاية الصحية</p>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="projects-filter-bar">
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter_all">كافة المشاريع</button>
+                    <button class="filter-btn" data-filter="ai" data-i18n="filter_ai">الذكاء الاصطناعي والتعليم</button>
+                    <button class="filter-btn" data-filter="web" data-i18n="filter_web">المنصات السحابية</button>
+                    <button class="filter-btn" data-filter="health" data-i18n="filter_health">الصحة الرقمية والفرز</button>
+                </div>
+
+                <!-- Dynamic Projects Grid (Loaded from IndexedDB) -->
+                <div class="projects-grid" id="projectsGrid"></div>
+
+                <div style="text-align: center; margin-top: 3.5rem;">
+                    <a href="projects.html" class="btn btn-secondary">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span data-i18n="proj_view_all_page">استعراض صفحة المشاريع المستقلة بالكامل</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Blog & Research Section -->
+        <section id="blog" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">KNOWLEDGE & R&D</span>
+                    <h2 class="section-title" data-i18n="blog_title">المدونة والأبحاث التقنية</h2>
+                    <p class="section-subtitle" data-i18n="blog_sub">مقالات ورؤى هندسية حول هندسة الذكاء الاصطناعي، والأنظمة الموزعة، ومستقبل التكنولوجيا</p>
+                </div>
+
+                <!-- Dynamic Blog Grid (Loaded from IndexedDB) -->
+                <div class="blog-grid" id="blogGrid"></div>
+
+                <div style="text-align: center; margin-top: 3.5rem;">
+                    <a href="blog.html" class="btn btn-secondary">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span data-i18n="blog_view_all_page">استعراض صفحة المدونة المستقلة بالكامل</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section (Strictly Technical Vision & Mission) -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">TECHNICAL IDENTITY</span>
+                    <h2 class="section-title" data-i18n="about_title">عن NOVAX: الرؤية والهوية الهندسية</h2>
+                    <p class="section-subtitle" data-i18n="about_sub">شغف ابتكار الحلول الذكية وهندسة المستقبل التقني</p>
+                </div>
+
+                <div class="about-split">
+                    <!-- Left: Story & Genesis -->
+                    <div class="about-story-box">
+                        <h3 class="about-story-title" data-i18n="about_story_title">قصة الانطلاق والشغف الهندسي</h3>
+                        <p class="about-story-text" data-i18n="about_story_p1">
+                            تأسست نواة NOVAX في عام 2025 كفريق شغوف من طلاب هندسة الذكاء الاصطناعي وعلوم البيانات. دافعنا الأساسي هو تحويل المعرفة الأكاديمية والنظريات الهندسية المتقدمة إلى منتجات برمجية عملية وذكية تخدم قطاعات حيوية مثل التعليم، والتجارة، والصحة.
+                        </p>
+                        <p class="about-story-text" data-i18n="about_story_p2">
+                            نؤمن بأن البرمجة وهندسة الخوارزميات ليست مجرد أسطر كود، بل هي أداة لإعادة ابتكار الأدوات وتجاوز التحديات اللوجستية والتقنية المعقدة، والارتقاء بكفاءة المنظومات الرقمية.
+                        </p>
+                    </div>
+
+                    <!-- Right: Vision, Mission & Values -->
+                    <div class="about-cards-box">
+                        <div class="about-feature-row">
+                            <div class="about-feature-icon">
+                                <i class="fa-solid fa-compass"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4 data-i18n="about_vision_title">رؤيتنا التقنية</h4>
+                                <p data-i18n="about_vision_desc">بناء وتطوير حلول برمجية رصينة ونماذج ذكاء اصطناعي تفاعلية تضع معايير جديدة في تجربة المستخدم والأداء وسرعة الاستجابة.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-feature-row">
+                            <div class="about-feature-icon">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4 data-i18n="about_mission_title">رسالتنا الهندسية</h4>
+                                <p data-i18n="about_mission_desc">الاستثمار في أحدث أدوات الذكاء الاصطناعي وهندسة النظم لبناء منصات متكاملة تدعم رواد الأعمال، والمتعلمين، والمؤسسات.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-feature-row">
+                            <div class="about-feature-icon">
+                                <i class="fa-solid fa-code-merge"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4 data-i18n="val_1_title">الدقة الهندسية والابتكار</h4>
+                                <p data-i18n="val_1_desc">كتابة شيفرات برمجية نظيفة، مدروسة معمارياً، وقابلة للتطوير والتوسع المستقبلي.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">GET IN TOUCH</span>
+                    <h2 class="section-title" data-i18n="contact_title">تواصل معنا</h2>
+                    <p class="section-subtitle" data-i18n="contact_sub">نسعد باستقبال اقتراحاتكم، واستفساراتكم الهندسية، وفرص التعاون التقني</p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Form Card -->
+                    <div class="contact-card">
+                        <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;" data-i18n="contact_form_title">أرسل رسالة مباشرة</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName" class="form-label" data-i18n="contact_name_label">الاسم الكامل</label>
+                                <input type="text" id="contactName" class="form-control" data-i18n-ph="contact_name_ph" placeholder="أدخل اسمك الكريم" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactEmail" class="form-label" data-i18n="contact_email_label">البريد الإلكتروني</label>
+                                <input type="email" id="contactEmail" class="form-control" data-i18n-ph="contact_email_ph" placeholder="name@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactSubject" class="form-label" data-i18n="contact_subject_label">نوع الاستفسار / الموضوع</label>
+                                <select id="contactSubject" class="form-control">
+                                    <option value="General Technical Inquiry" data-i18n="contact_sub_opt_general">استفسار عام أو تقني</option>
+                                    <option value="Collaboration or Partnership" data-i18n="contact_sub_opt_collab">اقتراح تعاون أو شراكة برمجية</option>
+                                    <option value="Project Inquiry" data-i18n="contact_sub_opt_project">استفسار بخصوص أحد المشاريع المعروضة</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage" class="form-label" data-i18n="contact_msg_label">تفاصيل الرسالة</label>
+                                <textarea id="contactMessage" class="form-control" data-i18n-ph="contact_msg_ph" placeholder="اكتب تفاصيل استفسارك أو مقترحك هنا..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span data-i18n="contact_btn_send">إرسال الرسالة</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Details & Social Hub -->
+                    <div class="contact-info-panel">
+                        <div class="contact-card">
+                            <h3 style="font-size: 1.35rem; margin-bottom: 1rem;" data-i18n="contact_info_title">قنوات التواصل والشبكات</h3>
+                            <p style="font-size: 0.95rem; color: var(--color-text-sub); margin-bottom: 1.5rem;" data-i18n="contact_info_desc">
+                                يمكنك الوصول إلينا ومتابعة تحديثاتنا عبر القنوات الرسمية التالية:
+                            </p>
+
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="contact-detail-card">
+                                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                                    <div>
+                                        <div class="contact-detail-title">Official Email</div>
+                                        <div class="contact-detail-val" data-i18n="contact_email_val">contact@novax.tech</div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-detail-card">
+                                    <div class="contact-icon"><i class="fa-solid fa-server"></i></div>
+                                    <div>
+                                        <div class="contact-detail-title" data-i18n="contact_loc_label">المقر والنشاط:</div>
+                                        <div class="contact-detail-val" data-i18n="contact_loc_val">فريق تقني سحابي / متصل عالمياً</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Social Links Placeholders (Easy for user to edit) -->
+                            <div class="social-links-grid">
+                                <!-- GitHub Link Placeholder -->
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+
+                                <!-- LinkedIn Link Placeholder -->
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+
+                                <!-- X / Twitter Placeholder -->
+                                <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                    <span>X (Twitter)</span>
+                                </a>
+
+                                <!-- Telegram Placeholder -->
+                                <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <i class="fa-brands fa-telegram"></i>
+                                    <span>Telegram</span>
+                                </a>
+                            </div>
+
+                            <p class="social-note-text" data-i18n="contact_social_note">
+                                ملاحظة: الروابط أعلاه قوالب رسمية جاهزة لإضافة حساباتكم المعتمدة فور إنشائها.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo-row">
+                        <img src="assets/images/logo.png" alt="NOVAX" class="footer-logo-img">
+                        <span class="brand-main-title">NOVAX</span>
+                    </div>
+                    <p class="footer-desc" data-i18n="footer_desc">
+                        فريق طلابي متخصص في هندسة الذكاء الاصطناعي وبناء الحلول الرقمية الذكية.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 data-i18n="footer_quick_links">روابط سريعة</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                        <li><a href="projects.html" data-i18n="nav_projects">المشاريع</a></li>
+                        <li><a href="blog.html" data-i18n="nav_blog">المدونة التقنية</a></li>
+                        <li><a href="about.html" data-i18n="nav_about">الرؤية والتقنية</a></li>
+                        <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 data-i18n="footer_tech_stack">التقنيات المستخدمة</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                        <span class="tech-tag">Python & AI</span>
+                        <span class="tech-tag">LLM Reasoning</span>
+                        <span class="tech-tag">Cloud Microservices</span>
+                        <span class="tech-tag">WebAssembly</span>
+                        <span class="tech-tag">IndexedDB Architecture</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div data-i18n="footer_rights">جميع الحقوق محفوظة لفريق NOVAX للحلول التقنية © 2025 - 2026</div>
+                <div class="footer-badge-tag">
+                    <i class="fa-solid fa-code"></i>
+                    <span data-i18n="footer_badge">Designed with Precision & AI Passion</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         Modals Container
+         ========================================================================== -->
+
+    <!-- 1. Project Details Modal -->
+    <div id="projectModal" class="modal-overlay">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title" id="modalProjTitle">تفاصيل المشروع</h3>
+                    <span id="modalProjStatus" class="project-status-tag" style="margin-top: 0.4rem; display: inline-block;"></span>
+                </div>
+                <button class="modal-close-btn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="modalProjBody"></div>
+            <div class="modal-footer" style="justify-content: space-between;">
+                <div id="modalProjStack" style="display: flex; flex-wrap: wrap; gap: 0.4rem;"></div>
+                <button class="btn btn-secondary btn-sm modal-dismiss-btn" data-i18n="proj_modal_close">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Blog Reader Modal -->
+    <div id="blogModal" class="modal-overlay">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title" id="modalBlogTitle">عنوان المقال</h3>
+                    <div id="modalBlogMeta" style="font-size: 0.85rem; color: var(--color-gold); margin-top: 0.35rem;"></div>
+                </div>
+                <button class="modal-close-btn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="modalBlogBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-sm modal-dismiss-btn" data-i18n="blog_modal_close">إغلاق القارئ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Authentication Modal (Login / Sign Up) -->
+    <div id="authModal" class="modal-overlay">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="authModalTitle" data-i18n="auth_modal_title_login">تسجيل دخول الأعضاء</h3>
+                <button class="modal-close-btn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="authForm">
+                    <div class="form-group reg-only" style="display: none;">
+                        <label for="authName" class="form-label" data-i18n="auth_name">الاسم الكامل</label>
+                        <input type="text" id="authName" class="form-control" placeholder="أدخل اسمك">
+                    </div>
+
+                    <div class="form-group reg-only" style="display: none;">
+                        <label for="authRole" class="form-label" data-i18n="auth_role">التخصص / الدور</label>
+                        <input type="text" id="authRole" class="form-control" placeholder="طالب هندسة ذكاء اصطناعي">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="authEmail" class="form-label" data-i18n="auth_email">البريد الإلكتروني</label>
+                        <input type="email" id="authEmail" class="form-control" placeholder="name@novax.tech" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="authPassword" class="form-label" data-i18n="auth_pass">كلمة المرور</label>
+                        <input type="password" id="authPassword" class="form-control" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" id="authSubmitBtn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;" data-i18n="auth_btn_login">
+                        دخول
+                    </button>
+                </form>
+
+                <div style="text-align: center; margin-top: 1.5rem; font-size: 0.92rem;">
+                    <a href="#" id="authSwitchBtn" style="color: var(--color-green); font-weight: 700;" data-i18n="auth_no_account">
+                        ليس لديك حساب؟ سجل الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Dashboard Modal (Local Database Management) -->
+    <div id="dashboardModal" class="modal-overlay">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title" data-i18n="dash_title">لوحة تحكم المنصة وقاعدة البيانات</h3>
+                    <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.2rem;">
+                        <span data-i18n="dash_welcome">مرحباً بك،</span> <strong id="dashUserName" class="highlight-green"></strong> (<span id="dashUserRole"></span>)
+                    </div>
+                </div>
+                <button class="modal-close-btn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <button id="exportDbBtn" class="btn btn-accent btn-sm">
+                        <i class="fa-solid fa-download"></i>
+                        <span data-i18n="dash_export_btn">تصدير نسخة احتياطية من قاعدة البيانات (JSON)</span>
+                    </button>
+                </div>
+
+                <h4 style="margin-bottom: 1rem; color: var(--color-white);" data-i18n="dash_tab_messages">رسائل التواصل الواردة</h4>
+                <div id="dashMessagesList" style="max-height: 350px; overflow-y: auto;"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-sm modal-dismiss-btn" data-i18n="proj_modal_close">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Core Scripts -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/canvas.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
