@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | NOVAX Technology Solutions</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .page-header-banner {
+            padding-top: 9rem;
+            padding-bottom: 4rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+    <div class="ambient-glow glow-red"></div>
+    <div class="ambient-glow glow-green"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="brand-logo-link">
+                <img src="assets/images/logo.png" alt="NOVAX" class="brand-logo-img">
+                <div class="brand-text-block">
+                    <span class="brand-main-title">NOVAX</span>
+                    <span class="brand-sub-title">TECH SOLUTIONS</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="main-nav" id="mainNav">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">المشاريع</a></li>
+                    <li><a href="blog.html" class="nav-link" data-i18n="nav_blog">المدونة التقنية</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav_about">الرؤية والتقنية</a></li>
+                    <li><a href="contact.html" class="nav-link active" data-i18n="nav_contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="langToggleBtn" class="lang-toggle-btn">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="langToggleText">English</span>
+                </button>
+                <a href="login.html" class="btn btn-primary btn-sm">
+                    <i class="fa-solid fa-user-lock"></i>
+                    <span data-i18n="nav_login">تسجيل الدخول</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header-banner">
+            <div class="container">
+                <span class="section-tag">CONNECT WITH NOVAX</span>
+                <h1 class="hero-heading" style="margin-bottom: 1rem;" data-i18n="contact_title">تواصل معنا</h1>
+                <p class="hero-description" style="margin: 0 auto;" data-i18n="contact_sub">
+                    نسعد باستقبال اقتراحاتكم، واستفساراتكم الهندسية، وفرص التعاون التقني
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" style="padding-top: 1rem;">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Form -->
+                    <div class="contact-card">
+                        <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;" data-i18n="contact_form_title">أرسل رسالة مباشرة</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName" class="form-label" data-i18n="contact_name_label">الاسم الكامل</label>
+                                <input type="text" id="contactName" class="form-control" placeholder="أدخل اسمك الكريم" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactEmail" class="form-label" data-i18n="contact_email_label">البريد الإلكتروني</label>
+                                <input type="email" id="contactEmail" class="form-control" placeholder="name@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactSubject" class="form-label" data-i18n="contact_subject_label">نوع الاستفسار / الموضوع</label>
+                                <select id="contactSubject" class="form-control">
+                                    <option value="General Technical Inquiry" data-i18n="contact_sub_opt_general">استفسار عام أو تقني</option>
+                                    <option value="Collaboration or Partnership" data-i18n="contact_sub_opt_collab">اقتراح تعاون أو شراكة برمجية</option>
+                                    <option value="Project Inquiry" data-i18n="contact_sub_opt_project">استفسار بخصوص أحد المشاريع المعروضة</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage" class="form-label" data-i18n="contact_msg_label">تفاصيل الرسالة</label>
+                                <textarea id="contactMessage" class="form-control" placeholder="اكتب تفاصيل استفسارك أو مقترحك هنا..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span data-i18n="contact_btn_send">إرسال الرسالة</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Info Panel -->
+                    <div class="contact-info-panel">
+                        <div class="contact-card">
+                            <h3 style="font-size: 1.35rem; margin-bottom: 1rem;" data-i18n="contact_info_title">قنوات التواصل والشبكات</h3>
+                            <p style="font-size: 0.95rem; color: var(--color-text-sub); margin-bottom: 1.5rem;" data-i18n="contact_info_desc">
+                                يمكنك الوصول إلينا ومتابعة تحديثاتنا عبر القنوات الرسمية التالية:
+                            </p>
+
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div class="contact-detail-card">
+                                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                                    <div>
+                                        <div class="contact-detail-title">Official Email</div>
+                                        <div class="contact-detail-val" data-i18n="contact_email_val">contact@novax.tech</div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-detail-card">
+                                    <div class="contact-icon"><i class="fa-solid fa-server"></i></div>
+                                    <div>
+                                        <div class="contact-detail-title" data-i18n="contact_loc_label">المقر والنشاط:</div>
+                                        <div class="contact-detail-val" data-i18n="contact_loc_val">فريق تقني سحابي / متصل عالمياً</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="social-links-grid">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                    <span>X (Twitter)</span>
+                                </a>
+                                <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="social-btn">
+                                    <i class="fa-brands fa-telegram"></i>
+                                    <span>Telegram</span>
+                                </a>
+                            </div>
+
+                            <p class="social-note-text" data-i18n="contact_social_note">
+                                ملاحظة: الروابط أعلاه قوالب رسمية جاهزة لإضافة حساباتكم المعتمدة فور إنشائها.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div data-i18n="footer_rights">جميع الحقوق محفوظة لفريق NOVAX للحلول التقنية © 2025 - 2026</div>
+                <div class="footer-badge-tag">
+                    <i class="fa-solid fa-code"></i>
+                    <span data-i18n="footer_badge">Designed with Precision & AI Passion</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/canvas.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            await NOVAX_DB.init();
+            NOVAX_I18N.init();
+
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('contactName').value.trim();
+                    const email = document.getElementById('contactEmail').value.trim();
+                    const subject = document.getElementById('contactSubject').value;
+                    const message = document.getElementById('contactMessage').value.trim();
+
+                    await NOVAX_DB.saveMessage({ name, email, subject, message });
+
+                    showToast(NOVAX_I18N.getLanguage() === 'ar'
+                        ? 'شكراً لك! تم استلام رسالتك بنجاح.'
+                        : 'Thank you! Your message has been received.', 'success');
+
+                    contactForm.reset();
+                });
+            }
+
+            const langToggleBtn = document.getElementById('langToggleBtn');
+            if (langToggleBtn) {
+                langToggleBtn.addEventListener('click', () => {
+                    const next = NOVAX_I18N.getLanguage() === 'ar' ? 'en' : 'ar';
+                    NOVAX_I18N.setLanguage(next);
+                });
+            }
+        });
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = 'toast-msg';
+            let icon = type === 'success' ? 'fa-circle-check' : 'fa-info-circle';
+            let borderColor = type === 'success' ? 'var(--color-green)' : 'var(--color-gold)';
+            toast.style.borderColor = borderColor;
+            toast.innerHTML = `<i class="fa-solid ${icon}" style="color: ${borderColor}"></i> <span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(15px)';
+                toast.style.transition = 'all 0.3s ease';
+                setTimeout(() => toast.remove(), 350);
+            }, 3500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدونة NOVAX التقنية | أبحاث الذكاء الاصطناعي وهندسة النظم</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .page-header-banner {
+            padding-top: 9rem;
+            padding-bottom: 4rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(230, 57, 70, 0.1) 0%, transparent 70%);
+        }
+        .search-filter-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 0.9rem 1.4rem;
+            background: rgba(15, 22, 34, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+        .search-input:focus {
+            border-color: var(--color-red);
+            box-shadow: 0 0 20px rgba(230, 57, 70, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+    <div class="ambient-glow glow-red"></div>
+    <div class="ambient-glow glow-green"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="brand-logo-link">
+                <img src="assets/images/logo.png" alt="NOVAX" class="brand-logo-img">
+                <div class="brand-text-block">
+                    <span class="brand-main-title">NOVAX</span>
+                    <span class="brand-sub-title">TECH SOLUTIONS</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="main-nav" id="mainNav">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">المشاريع</a></li>
+                    <li><a href="blog.html" class="nav-link active" data-i18n="nav_blog">المدونة التقنية</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav_about">الرؤية والتقنية</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="langToggleBtn" class="lang-toggle-btn">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="langToggleText">English</span>
+                </button>
+                <a href="login.html" class="btn btn-primary btn-sm">
+                    <i class="fa-solid fa-user-lock"></i>
+                    <span data-i18n="nav_login">تسجيل الدخول</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header-banner">
+            <div class="container">
+                <span class="section-tag">R&D PUBLICATIONS</span>
+                <h1 class="hero-heading" style="margin-bottom: 1rem;" data-i18n="blog_title">المدونة والأبحاث التقنية</h1>
+                <p class="hero-description" style="margin: 0 auto 2rem;" data-i18n="blog_sub">
+                    مقالات ورؤى هندسية حول هندسة الذكاء الاصطناعي، والأنظمة الموزعة، ومستقبل التكنولوجيا
+                </p>
+
+                <!-- Search Input -->
+                <div class="search-filter-box">
+                    <input type="text" id="blogSearchInput" class="search-input" placeholder="ابحث في المقالات أو المواضيع التقنية...">
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Grid Section -->
+        <section class="section" style="padding-top: 0;">
+            <div class="container">
+                <div class="blog-grid" id="blogGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Blog Reader Modal -->
+    <div id="blogModal" class="modal-overlay">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title" id="modalBlogTitle">عنوان المقال</h3>
+                    <div id="modalBlogMeta" style="font-size: 0.85rem; color: var(--color-gold); margin-top: 0.35rem;"></div>
+                </div>
+                <button class="modal-close-btn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="modalBlogBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-sm modal-dismiss-btn" data-i18n="blog_modal_close">إغلاق القارئ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal-overlay">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="authModalTitle" data-i18n="auth_modal_title_login">تسجيل دخول الأعضاء</h3>
+                <button class="modal-close-btn" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="authForm">
+                    <div class="form-group reg-only" style="display: none;">
+                        <label for="authName" class="form-label" data-i18n="auth_name">الاسم الكامل</label>
+                        <input type="text" id="authName" class="form-control" placeholder="أدخل اسمك">
+                    </div>
+                    <div class="form-group reg-only" style="display: none;">
+                        <label for="authRole" class="form-label" data-i18n="auth_role">التخصص / الدور</label>
+                        <input type="text" id="authRole" class="form-control" placeholder="طالب هندسة ذكاء اصطناعي">
+                    </div>
+                    <div class="form-group">
+                        <label for="authEmail" class="form-label" data-i18n="auth_email">البريد الإلكتروني</label>
+                        <input type="email" id="authEmail" class="form-control" placeholder="name@novax.tech" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="authPassword" class="form-label" data-i18n="auth_pass">كلمة المرور</label>
+                        <input type="password" id="authPassword" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" id="authSubmitBtn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;" data-i18n="auth_btn_login">دخول</button>
+                </form>
+                <div style="text-align: center; margin-top: 1.5rem; font-size: 0.92rem;">
+                    <a href="#" id="authSwitchBtn" style="color: var(--color-green); font-weight: 700;" data-i18n="auth_no_account">ليس لديك حساب؟ سجل الآن</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div data-i18n="footer_rights">جميع الحقوق محفوظة لفريق NOVAX للحلول التقنية © 2025 - 2026</div>
+                <div class="footer-badge-tag">
+                    <i class="fa-solid fa-code"></i>
+                    <span data-i18n="footer_badge">Designed with Precision & AI Passion</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/canvas.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Search filter listener
+        const searchInput = document.getElementById('blogSearchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
+                document.querySelectorAll('.blog-card').forEach(card => {
+                    const text = card.innerText.toLowerCase();
+                    card.style.display = text.includes(query) ? 'flex' : 'none';
+                });
+            });
+        }
+    </script>
+</body>
+</html>

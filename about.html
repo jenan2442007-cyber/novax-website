@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن والتقنية | NOVAX Technology Solutions</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .page-header-banner {
+            padding-top: 9rem;
+            padding-bottom: 4rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+        }
+        .about-detailed-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+    <div class="ambient-glow glow-red"></div>
+    <div class="ambient-glow glow-green"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="brand-logo-link">
+                <img src="assets/images/logo.png" alt="NOVAX" class="brand-logo-img">
+                <div class="brand-text-block">
+                    <span class="brand-main-title">NOVAX</span>
+                    <span class="brand-sub-title">TECH SOLUTIONS</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="main-nav" id="mainNav">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav_projects">المشاريع</a></li>
+                    <li><a href="blog.html" class="nav-link" data-i18n="nav_blog">المدونة التقنية</a></li>
+                    <li><a href="about.html" class="nav-link active" data-i18n="nav_about">الرؤية والتقنية</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="langToggleBtn" class="lang-toggle-btn">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="langToggleText">English</span>
+                </button>
+                <a href="login.html" class="btn btn-primary btn-sm">
+                    <i class="fa-solid fa-user-lock"></i>
+                    <span data-i18n="nav_login">تسجيل الدخول</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header-banner">
+            <div class="container">
+                <span class="section-tag">ENGINEERING IDENTITY</span>
+                <h1 class="hero-heading" style="margin-bottom: 1rem;" data-i18n="about_title">عن NOVAX: الرؤية والهوية الهندسية</h1>
+                <p class="hero-description" style="margin: 0 auto;" data-i18n="about_sub">
+                    شغف ابتكار الحلول الذكية وهندسة المستقبل التقني
+                </p>
+            </div>
+        </section>
+
+        <!-- Detailed About Content -->
+        <section class="section" style="padding-top: 1rem;">
+            <div class="container">
+                
+                <div class="about-detailed-card">
+                    <h2 class="about-story-title highlight-gradient" style="margin-bottom: 1.2rem;" data-i18n="about_story_title">قصة الانطلاق والشغف الهندسي</h2>
+                    <p class="about-story-text" style="margin-bottom: 1.2rem;" data-i18n="about_story_p1">
+                        تأسست نواة NOVAX في عام 2025 كفريق شغوف من طلاب هندسة الذكاء الاصطناعي وعلوم البيانات. دافعنا الأساسي هو تحويل المعرفة الأكاديمية والنظريات الهندسية المتقدمة إلى منتجات برمجية عملية وذكية تخدم قطاعات حيوية مثل التعليم، والتجارة، والصحة.
+                    </p>
+                    <p class="about-story-text" data-i18n="about_story_p2">
+                        نؤمن بأن البرمجة وهندسة الخوارزميات ليست مجرد أسطر كود، بل هي أداة لإعادة ابتكار الأدوات وتجاوز التحديات اللوجستية والتقنية المعقدة، والارتقاء بكفاءة المنظومات الرقمية.
+                    </p>
+                </div>
+
+                <!-- Vision & Mission Grid -->
+                <div class="pillars-grid" style="margin-bottom: 3.5rem;">
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box" style="color: var(--color-gold);">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 class="pillar-title" data-i18n="about_vision_title">رؤيتنا التقنية</h3>
+                        <p class="pillar-desc" data-i18n="about_vision_desc">بناء وتطوير حلول برمجية رصينة ونماذج ذكاء اصطناعي تفاعلية تضع معايير جديدة في تجربة المستخدم والأداء وسرعة الاستجابة.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box" style="color: var(--color-green);">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="pillar-title" data-i18n="about_mission_title">رسالتنا الهندسية</h3>
+                        <p class="pillar-desc" data-i18n="about_mission_desc">الاستثمار في أحدث أدوات الذكاء الاصطناعي وهندسة النظم لبناء منصات متكاملة تدعم رواد الأعمال، والمتعلمين، والمؤسسات.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box" style="color: var(--color-red);">
+                            <i class="fa-solid fa-code-merge"></i>
+                        </div>
+                        <h3 class="pillar-title" data-i18n="val_1_title">الدقة الهندسية والابتكار</h3>
+                        <p class="pillar-desc" data-i18n="val_1_desc">كتابة شيفرات برمجية نظيفة، مدروسة معمارياً، وقابلة للتطوير والتوسع المستقبلي.</p>
+                    </div>
+                </div>
+
+                <!-- Core Pillars Detailed -->
+                <div class="section-header" style="margin-bottom: 2.5rem;">
+                    <h2 class="section-title" data-i18n="pillars_title">مجالات التركيز الهندسي والتقني</h2>
+                    <p class="section-subtitle" data-i18n="pillars_sub">منظومة عمل متكاملة تستند إلى أسس علوم الحاسوب وهندسة الذكاء الاصطناعي</p>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box"><i class="fa-solid fa-brain"></i></div>
+                        <h3 class="pillar-title" data-i18n="pillar_1_title">هندسة الذكاء الاصطناعي (AI & ML)</h3>
+                        <p class="pillar-desc" data-i18n="pillar_1_desc">بناء وتخصيص نماذج اللغة والتصنيف وخوارزميات التوجيه التكيفي ومعالجة اللغات الطبيعية.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box"><i class="fa-solid fa-layer-group"></i></div>
+                        <h3 class="pillar-title" data-i18n="pillar_2_title">الأنظمة السحابية والويب المتكامل</h3>
+                        <p class="pillar-desc" data-i18n="pillar_2_desc">تطوير منصات ويب تفاعلية عالية الأداء وسريعة الاستجابة مبنية بأحدث أطر العمل الحديثة.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3 class="pillar-title" data-i18n="pillar_3_title">الأنظمة الموزعة والمرنة</h3>
+                        <p class="pillar-desc" data-i18n="pillar_3_desc">تصميم حلول تعمل بكفاءة حتى في ظروف الاتصال الضعيف وانقطاع الشبكات بنمط Offline-First.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3 class="pillar-title" data-i18n="pillar_4_title">أمن البيانات والخصوصية</h3>
+                        <p class="pillar-desc" data-i18n="pillar_4_desc">تطبيق معايير التشفير والتحقق الصارم لحماية سرية البيانات الطبية والتجارية.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div data-i18n="footer_rights">جميع الحقوق محفوظة لفريق NOVAX للحلول التقنية © 2025 - 2026</div>
+                <div class="footer-badge-tag">
+                    <i class="fa-solid fa-code"></i>
+                    <span data-i18n="footer_badge">Designed with Precision & AI Passion</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/canvas.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            await NOVAX_DB.init();
+            NOVAX_I18N.init();
+            const langToggleBtn = document.getElementById('langToggleBtn');
+            if (langToggleBtn) {
+                langToggleBtn.addEventListener('click', () => {
+                    const next = NOVAX_I18N.getLanguage() === 'ar' ? 'en' : 'ar';
+                    NOVAX_I18N.setLanguage(next);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

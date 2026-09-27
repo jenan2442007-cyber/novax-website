@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | NOVAX Technology Solutions</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .auth-page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .auth-card-container {
+            width: 100%;
+            max-width: 520px;
+            background: rgba(13, 18, 28, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2.2rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(230, 57, 70, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .auth-card-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-red), var(--color-gold), var(--color-green));
+        }
+
+        .auth-brand-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-logo-img {
+            width: 110px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.4));
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
+        }
+
+        .auth-title {
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .auth-subtitle {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .auth-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            padding: 0.35rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .auth-tab-btn {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--color-text-sub);
+            font-family: inherit;
+            font-size: 0.92rem;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .auth-tab-btn.active {
+            background: linear-gradient(135deg, var(--color-red), #b91c1c);
+            color: #ffffff;
+            box-shadow: 0 4px 15px var(--color-red-glow);
+        }
+
+        .social-auth-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.85rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .social-auth-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.7rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .social-auth-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .divider-row {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1.8rem;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+        }
+
+        .divider-row::before,
+        .divider-row::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .divider-row span {
+            padding: 0 1rem;
+        }
+
+        .password-input-wrap {
+            position: relative;
+        }
+
+        .toggle-password-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 1.1rem;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        [dir="ltr"] .toggle-password-icon {
+            left: auto;
+            right: 1.1rem;
+        }
+
+        .toggle-password-icon:hover {
+            color: #ffffff;
+        }
+
+        .form-options-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+        }
+
+        .remember-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            color: var(--color-text-sub);
+        }
+
+        .forgot-link {
+            color: var(--color-gold);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-top: 1.8rem;
+            transition: var(--transition-smooth);
+        }
+
+        .back-home-link:hover {
+            color: var(--color-green);
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+    <div class="ambient-glow glow-red"></div>
+    <div class="ambient-glow glow-green"></div>
+
+    <!-- Header bar for Language Switch -->
+    <div style="position: absolute; top: 1.5rem; right: 1.5rem; z-index: 10;">
+        <button id="langToggleBtn" class="lang-toggle-btn">
+            <i class="fa-solid fa-globe"></i>
+            <span id="langToggleText">English</span>
+        </button>
+    </div>
+
+    <div class="auth-page-wrapper">
+        <div class="auth-card-container">
+            
+            <!-- Brand Header -->
+            <div class="auth-brand-header">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="NOVAX Logo" class="auth-logo-img">
+                </a>
+                <h1 class="auth-title">NOVAX</h1>
+                <p class="auth-subtitle" id="authSubtitleText">بوابة أعضاء فريق الحلول التقنية والذكاء الاصطناعي</p>
+            </div>
+
+            <!-- Tabs: Sign In / Register -->
+            <div class="auth-tabs">
+                <button type="button" class="auth-tab-btn active" id="tabSignInBtn">تسجيل الدخول</button>
+                <button type="button" class="auth-tab-btn" id="tabSignUpBtn">إنشاء حساب جديد</button>
+            </div>
+
+            <!-- Social Quick Auth -->
+            <div class="social-auth-box">
+                <button type="button" class="social-auth-btn" onclick="mockSocialAuth('GitHub')">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </button>
+                <button type="button" class="social-auth-btn" onclick="mockSocialAuth('Google')">
+                    <i class="fa-brands fa-google"></i>
+                    <span>Google</span>
+                </button>
+            </div>
+
+            <div class="divider-row">
+                <span id="authDividerText">أو المتابعة بالبريد الإلكتروني</span>
+            </div>
+
+            <!-- Form -->
+            <form id="dedicatedAuthForm">
+                
+                <!-- Sign Up Specific Fields -->
+                <div class="form-group signup-field" style="display: none;">
+                    <label for="pageAuthName" class="form-label">الاسم الكامل</label>
+                    <input type="text" id="pageAuthName" class="form-control" placeholder="أدخل اسمك الكريم">
+                </div>
+
+                <div class="form-group signup-field" style="display: none;">
+                    <label for="pageAuthRole" class="form-label">التخصص أو الدور في الفريق</label>
+                    <input type="text" id="pageAuthRole" class="form-control" placeholder="طالب هندسة ذكاء اصطناعي">
+                </div>
+
+                <!-- Common Fields -->
+                <div class="form-group">
+                    <label for="pageAuthEmail" class="form-label">البريد الإلكتروني</label>
+                    <input type="email" id="pageAuthEmail" class="form-control" placeholder="name@novax.tech" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pageAuthPassword" class="form-label">كلمة المرور</label>
+                    <div class="password-input-wrap">
+                        <input type="password" id="pageAuthPassword" class="form-control" placeholder="••••••••" required>
+                        <i class="fa-regular fa-eye toggle-password-icon" id="togglePasswordBtn"></i>
+                    </div>
+                </div>
+
+                <!-- Sign In Options -->
+                <div class="form-options-row" id="signInOptionsRow">
+                    <label class="remember-label">
+                        <input type="checkbox" id="rememberMe" checked>
+                        <span>تذكر بيانات الدخول</span>
+                    </label>
+                    <a href="#" class="forgot-link" onclick="handleForgot(event)">نسيت كلمة المرور؟</a>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="pageAuthSubmitBtn" class="btn btn-primary" style="width: 100%;">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <span id="submitBtnText">دخول</span>
+                </button>
+            </form>
+
+            <!-- Bottom Note -->
+            <div style="text-align: center;">
+                <a href="index.html" class="back-home-link">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <span id="backHomeText">العودة إلى الصفحة الرئيسية</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Core Scripts -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/canvas.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            await NOVAX_DB.init();
+            NOVAX_I18N.init();
+
+            let isSignUp = false;
+
+            const tabSignInBtn = document.getElementById('tabSignInBtn');
+            const tabSignUpBtn = document.getElementById('tabSignUpBtn');
+            const signupFields = document.querySelectorAll('.signup-field');
+            const signInOptionsRow = document.getElementById('signInOptionsRow');
+            const submitBtnText = document.getElementById('submitBtnText');
+            const dedicatedAuthForm = document.getElementById('dedicatedAuthForm');
+            const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+            const passwordInput = document.getElementById('pageAuthPassword');
+            const langToggleBtn = document.getElementById('langToggleBtn');
+
+            function applyTabState() {
+                const lang = NOVAX_I18N.getLanguage();
+                if (isSignUp) {
+                    tabSignInBtn.classList.remove('active');
+                    tabSignUpBtn.classList.add('active');
+                    signupFields.forEach(el => el.style.display = 'block');
+                    signInOptionsRow.style.display = 'none';
+                    submitBtnText.textContent = lang === 'ar' ? 'إنشاء حساب جديد' : 'Create Account';
+                } else {
+                    tabSignUpBtn.classList.remove('active');
+                    tabSignInBtn.classList.add('active');
+                    signupFields.forEach(el => el.style.display = 'none');
+                    signInOptionsRow.style.display = 'flex';
+                    submitBtnText.textContent = lang === 'ar' ? 'دخول' : 'Sign In';
+                }
+            }
+
+            tabSignInBtn.addEventListener('click', () => {
+                isSignUp = false;
+                applyTabState();
+            });
+
+            tabSignUpBtn.addEventListener('click', () => {
+                isSignUp = true;
+                applyTabState();
+            });
+
+            // Password reveal toggle
+            if (togglePasswordBtn && passwordInput) {
+                togglePasswordBtn.addEventListener('click', () => {
+                    const isPass = passwordInput.type === 'password';
+                    passwordInput.type = isPass ? 'text' : 'password';
+                    togglePasswordBtn.className = isPass ? 'fa-regular fa-eye-slash toggle-password-icon' : 'fa-regular fa-eye toggle-password-icon';
+                });
+            }
+
+            // Form Submit
+            dedicatedAuthForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('pageAuthEmail').value.trim();
+                const password = passwordInput.value;
+
+                try {
+                    if (isSignUp) {
+                        const name = document.getElementById('pageAuthName').value.trim();
+                        const role = document.getElementById('pageAuthRole').value.trim() || 'AI Engineering Student';
+                        if (!name) {
+                            showToast('يرجى إدخال الاسم الكامل', 'error');
+                            return;
+                        }
+                        await NOVAX_DB.register({ name, email, password, role });
+                        showToast('تم إنشاء الحساب وتسجيل الدخول بنجاح! جاري تحويلك...', 'success');
+                    } else {
+                        await NOVAX_DB.login(email, password);
+                        showToast('تم تسجيل الدخول بنجاح! جاري تحويلك...', 'success');
+                    }
+
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1200);
+
+                } catch (err) {
+                    showToast(err.message || 'حدث خطأ أثناء المصادقة', 'error');
+                }
+            });
+
+            // Language toggle
+            if (langToggleBtn) {
+                langToggleBtn.addEventListener('click', () => {
+                    const next = NOVAX_I18N.getLanguage() === 'ar' ? 'en' : 'ar';
+                    NOVAX_I18N.setLanguage(next);
+                    updateAuthPageTranslations();
+                });
+            }
+
+            function updateAuthPageTranslations() {
+                const lang = NOVAX_I18N.getLanguage();
+                if (lang === 'en') {
+                    document.getElementById('authSubtitleText').textContent = 'AI Engineering & Tech Solutions Member Portal';
+                    tabSignInBtn.textContent = 'Sign In';
+                    tabSignUpBtn.textContent = 'Register';
+                    document.getElementById('authDividerText').textContent = 'Or continue with email';
+                    document.getElementById('backHomeText').textContent = 'Return to Homepage';
+                } else {
+                    document.getElementById('authSubtitleText').textContent = 'بوابة أعضاء فريق الحلول التقنية والذكاء الاصطناعي';
+                    tabSignInBtn.textContent = 'تسجيل الدخول';
+                    tabSignUpBtn.textContent = 'إنشاء حساب جديد';
+                    document.getElementById('authDividerText').textContent = 'أو المتابعة بالبريد الإلكتروني';
+                    document.getElementById('backHomeText').textContent = 'العودة إلى الصفحة الرئيسية';
+                }
+                applyTabState();
+            }
+
+            updateAuthPageTranslations();
+        });
+
+        function mockSocialAuth(provider) {
+            showToast(`جاري تسجيل الدخول عبر ${provider}...`, 'info');
+            setTimeout(() => {
+                showToast(`تم ربط حساب ${provider} بنجاح!`, 'success');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            }, 800);
+        }
+
+        function handleForgot(e) {
+            e.preventDefault();
+            showToast('تم إرسال رابط استعادة كلمة المرور إلى بريدك الإلكتروني', 'info');
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = 'toast-msg';
+            let icon = 'fa-info-circle';
+            let borderColor = 'var(--color-gold)';
+            if (type === 'success') {
+                icon = 'fa-circle-check';
+                borderColor = 'var(--color-green)';
+            } else if (type === 'error') {
+                icon = 'fa-triangle-exclamation';
+                borderColor = 'var(--color-red)';
+            }
+            toast.style.borderColor = borderColor;
+            toast.innerHTML = `<i class="fa-solid ${icon}" style="color: ${borderColor}"></i> <span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(15px)';
+                toast.style.transition = 'all 0.3s ease';
+                setTimeout(() => toast.remove(), 350);
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
